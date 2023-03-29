@@ -15,6 +15,10 @@ const handle = async (req: NextApiRequest, res: any) => {
         console.log(data);
         socket.broadcast.emit("message", data)
       });
+      socket.on("draw", (data) => {
+        console.log(data);
+        socket.broadcast.emit("draw", data)
+      });
       socket.on('disconnect', () => {
         console.log('user disconnected');
       });
